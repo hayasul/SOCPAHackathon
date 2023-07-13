@@ -12,8 +12,7 @@ os.environ["OPENAI_API_KEY"] = constant.APIKEY
 
 query = sys.argv[0]
 
-#تعديل
-print("hiiii")
+
 loader = TextLoader("data.txt")
 index = VectorstoreIndexCreator().from_loaders([loader])
 
