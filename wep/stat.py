@@ -7,7 +7,7 @@ from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 
 # import opinai_key
-#على ماتبدو لي الطريقه صح لذلك اتركوها
+#تصلح الكي:)
 os.environ["OPENAI_API_KEY"] = opinai_key
 
 #cretivty
@@ -25,4 +25,13 @@ prompt_template_Q1.format(something = "tax")
 chain = LLMChain(llm=llm , prompt=prompt_template_Q1)
 # memory ?
 
-#
+# Streamlit app configuration
+import streamlit as st
+st.set_page_config(page_title="جباية", layout="wide")
+
+ # Setting up the app title and description
+st.title("اكتب")
+st.write("Ask any question,  provide answers!")
+
+    # Available e types for the checklist
+place_types = ['Shopping', 'Food', 'Activities']
