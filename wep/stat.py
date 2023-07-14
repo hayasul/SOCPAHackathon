@@ -1,22 +1,23 @@
 import os
-#from theKey import opinai_key
+import openai
+from dotenv import load_dotenv, find_dotenv
 from langchain.llms import OpenAI
+from langchain.prompts import PromptTemplate
+from langchain.chains import LLMChain
 
-#the key
-os.environ['OPEN_AI_KEY'] = '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'
+# import opinai_key
+
+load_dotenv(find_dotenv())
+openai.api_key=os.environ['OPEN_AI_KEY'] 
+
 #cretivty
 llm = OpenAI(temperature=0.6)
-
-#promt template
-from langchain.prompts import PromptTemplate
-
+llm = OpenAI(model_name="text-ada-001")
+#promt template ,chain
 prompt_template_Q1= PromptTemplate (
     input_variables= ["something"],
     template= "what" 
 )
 prompt_template_Q1.format(something = "tax")
-
-#
-from langchain.chains import LLMChain
 
 chain = LLMChain(llm=llm , prompt=prompt_template_Q1)
