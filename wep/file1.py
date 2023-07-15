@@ -31,6 +31,10 @@ loader.load()
 
 index = VectorstoreIndexCreator().from_loaders([loader])
 
+result =index.query(query ,llm=ChatOpenAI())
+print(result.message.content)
+
+
 #memory
 from langchain import OpenAI, ConversationChain
 
@@ -38,9 +42,6 @@ llm = OpenAI(temperature=0)
 conversation = ConversationChain(llm=llm, verbose=True)
 
 conversation.run("Hi there!")
-
-result =index.query(query ,llm=ChatOpenAI())
-print(result.message.content)
 
 
 # Streamlit app configuration
